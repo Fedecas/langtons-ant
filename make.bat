@@ -1,0 +1,1 @@
+gcc matrix.c main.c -o langtons_ant -IC:\MinGW\include\SDL2 -LC:\MinGW\lib -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2
