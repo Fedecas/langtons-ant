@@ -24,16 +24,16 @@
 SDL_Window* WindowCreate(int width, int height, char* title)
 {
     // Initialize SDL with video resources
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-		printf("[error] SDL video subsystem could not initialize! SDL_Error: %s\n", SDL_GetError());
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+        printf("[error] SDL video subsystem could not initialize! SDL_Error: %s\n", SDL_GetError());
 
     // Create SDL window
-	SDL_Window* context = SDL_CreateWindow(title,
-		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-		width, height, SDL_WINDOW_SHOWN);
+    SDL_Window* context = SDL_CreateWindow(title,
+        SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+        width, height, SDL_WINDOW_SHOWN);
 
-	if (context == NULL)
-		printf("[error] Window could not be created! SDL_Error: %s\n", SDL_GetError());
+    if (context == NULL)
+        printf("[error] Window could not be created! SDL_Error: %s\n", SDL_GetError());
 
     return context;
 }
@@ -53,7 +53,7 @@ void WindowUpdate(SDL_Window* context)
 {
     // Update the pixels surface
     if (SDL_UpdateWindowSurface(context) == -1)
-		printf("[error] Surface could not be updated! SDL_Error: %s\n", SDL_GetError());
+        printf("[error] Surface could not be updated! SDL_Error: %s\n", SDL_GetError());
 }
 
 void Paint(SDL_Surface* surface, int x, int y, Uint8 r, Uint8 g, Uint8 b)
@@ -80,17 +80,17 @@ int InputEvent()
     SDL_Event event;
     int quit = 0;
 
-	while (SDL_PollEvent(&event)) {
-		switch (event.type) {
-		    case SDL_QUIT: quit = 1; break; // if close the window
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+            case SDL_QUIT: quit = 1; break; // if close the window
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
                     case SDLK_ESCAPE: quit = 1; break; // if press escape key
                     default: break;
                 } break;
-		    default: break;
-		}
-	}
+                default: break;
+        }
+    }
 
     return quit;
 }
@@ -186,5 +186,5 @@ int main(int argc, char *argv[])
     SDL_DestroyWindow(context);
     SDL_Quit();
 
-	return 0;
+    return 0;
 }
